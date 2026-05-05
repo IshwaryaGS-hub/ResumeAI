@@ -1,0 +1,21 @@
+body {
+  background: linear-gradient(to right, #eef2f3, #dfe9f3);
+}
+
+.main-card {
+  border-radius: 15px;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+.badge {
+  font-size: 14px;
+  padding: 8px 10px;
+}
+
+.progress {
+  height: 25px;
+  border-radius: 10px;
+}
