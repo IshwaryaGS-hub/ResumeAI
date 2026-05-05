@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import "./ResumeAnalyzer.css";
 
+const API_BASE_URL = (import.meta.env.VITE_API_URL || "http://localhost:5000").replace(/\/$/, "");
+
 function ResumeAnalyzer() {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -16,7 +18,7 @@ function ResumeAnalyzer() {
     try {
       setLoading(true);
 
-      const res = await axios.post("http://localhost:5000/analyze", formData);
+      const res = await axios.post(`${API_BASE_URL}/analyze`, formData);
 
       setResult(JSON.parse(res.data.analysis)); // assuming JSON response
       setLoading(false);

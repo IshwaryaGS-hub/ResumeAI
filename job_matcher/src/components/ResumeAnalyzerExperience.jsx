@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import "./ResumeAnalyzerExperience.css";
 
+const API_BASE_URL = (import.meta.env.VITE_API_URL || "http://localhost:5000").replace(/\/$/, "");
+
 const processingTasks = [
   "Scanning document structure and formatting",
   "Extracting skills and experience signals",
@@ -76,7 +78,7 @@ function ResumeAnalyzerExperience() {
     setStep("processing");
 
     try {
-      const res = await axios.post("http://localhost:5000/analyze", formData);
+      const res = await axios.post(`${API_BASE_URL}/analyze`, formData);
       clearInterval(progressIntervalRef.current);
       setProgress(100);
       setTimeout(() => {
